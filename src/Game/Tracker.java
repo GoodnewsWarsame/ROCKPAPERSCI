@@ -1,26 +1,39 @@
 package Game;
 
-public class Tracker extends Game {
-	private Game[] track;
-	private int count =0;
-	
-	
+import java.util.ArrayList;
 
+public class Tracker extends Game {
+	private ArrayList<Tracker> track = new ArrayList<Tracker>();
+	private int count =0;
+	private Game gm;
+	
+	
+	
 	public Tracker(String result, int computerScore, int playerScore) {
 		super(result, computerScore, playerScore);
-		// TODO Auto-generated constructor stub
+		count++;
+		this.gm = gm;
 	}
 	public void addScore(String result, int cmScore, int pScore) {
-		Game gm = new Game(result, cmScore, cmScore);
-		addScore(gm);
+	 Tracker games = new Tracker(result, cmScore, cmScore);
+		track.add(games);
+		this.gm =games;
 		
 	}
-	public void addScore(Game Track) {
-		 this.track[count] = Track ;
-		count++;
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Game: " + count  + " " + super.toString() + "\n";
+		
 	}
-	
-	
-	
 
+	
+	
+	
 }
+
+
+	
+	

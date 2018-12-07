@@ -8,7 +8,7 @@ public class Game {
 	private String Result;
 	private int computerScore;
 	private int playerScore;
-	private int count =0;
+
 	
 	
 
@@ -30,8 +30,7 @@ public class Game {
 	 */
 	@Override
 	public String toString() {
-		return "Game [Result=" + Result + ", computerScore=" + computerScore + ", playerScore=" + playerScore
-				+ ", count=" + count + "]";
+		return "Result=" + Result + " computerScore=" + computerScore + ", playerScore=" + playerScore ;
 	}
 	
 

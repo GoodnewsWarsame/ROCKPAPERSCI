@@ -112,14 +112,14 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 			public void actionPerformed(ActionEvent e) {
 			try {	
 
-			Game lm = new Game(result,computercount, playercount);
-			gm.addScore(lm);
+			Tracker lm = new Tracker(result,computercount, playercount);
+			lm.addScore(result, computercount, playercount);
 			output.append(lm.toString() + "");
 			}catch(NullPointerException ex) {
 				System.out.println("Naaah");
 			}
 			
-			output.append(result + " \n" + " Player wins " + playercount + "Computer wins " + computercount + "\n");
+			
 
 			}
 
