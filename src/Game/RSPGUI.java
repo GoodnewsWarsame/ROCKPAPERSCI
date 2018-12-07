@@ -28,7 +28,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 	private int playercount;
 	private int computercount;
 	private Tracker gm;
-
+//GUI 
 	public RSPGUI() {
 		setVisible(true);
 		setSize(300, 300);
