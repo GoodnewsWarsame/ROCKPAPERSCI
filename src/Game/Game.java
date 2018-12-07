@@ -4,7 +4,7 @@ import Login.Login;
 import Login.UserInfo;
 
 public class Game {
-	;
+//instance variables
 	private String Result;
 	private int computerScore;
 	private int playerScore;
@@ -12,7 +12,7 @@ public class Game {
 	
 	
 
-	
+	//constructor
 	public Game( String result, int computerScore, int playerScore) {
 		super();
 		
@@ -25,9 +25,7 @@ public class Game {
 
 
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	//toString method
 	@Override
 	public String toString() {
 		return "Result=" + Result + " computerScore=" + computerScore + ", playerScore=" + playerScore ;
