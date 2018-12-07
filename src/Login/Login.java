@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Game.RSPGUI;
-
+//
 public class Login extends JFrame {
 	private JPanel top = new JPanel();
 	private JPanel bttm = new JPanel();

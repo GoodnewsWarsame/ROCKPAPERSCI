@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 import javax.swing.*;
-
+//
 public class RSPGUI extends JFrame implements ActionListener, constants {
 
 	private JLabel userName = new JLabel("UserName");
@@ -28,6 +28,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 	private int playercount;
 	private int computercount;
 	private Tracker gm;
+	private int count;
 //GUI 
 	public RSPGUI() {
 		setVisible(true);
@@ -70,6 +71,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 				}
 				if (C.equals(computerHand)) {
 					result = "TIE";
+					count++;
 				} else {
 					switch (computerHand) {
 
@@ -77,28 +79,34 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 						if (C.equals(SCISSORS)) {
 							result = ("WINNER");
 							playercount++;
+							count++;
 
 						} else if (C.equals(PAPER)) {
 							result = ("LOSER");
 							computercount++;
+							count++;
 						}
 						break;
 					case PAPER:
 						if (C.equals(SCISSORS)) {
 							result = ("LOSER");
 							computercount++;
+							count++;
 						} else if (C.equals(ROCK)) {
 							result = ("Winner");
 							playercount++;
+							count++;
 						}
 						break;
 					case SCISSORS:
 						if (C.equals(ROCK)) {
 							result = ("LOSER");
 							computercount++;
+							count++;
 						} else if (C.equals(PAPER)) {
 							result = ("WINNER");
 							playercount++;
+							count++;
 						}
 
 					}
@@ -112,8 +120,8 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 			public void actionPerformed(ActionEvent e) {
 			try {	
 				//ADDS RESULTS AND DISPLAYS RESULTS FROM GUI
-			Tracker lm = new Tracker(result,computercount, playercount);
-			lm.addScore(result, computercount, playercount);
+			Tracker lm = new Tracker(result,computercount, playercount,count);
+			lm.addScore(result, computercount, playercount,count);
 			output.append(lm.toString() + "");
 			}catch(NullPointerException ex) {
 				System.out.println("Naaah");

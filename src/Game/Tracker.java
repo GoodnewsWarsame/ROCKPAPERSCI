@@ -1,7 +1,7 @@
 package Game;
 
 import java.util.ArrayList;
-
+//
 public class Tracker extends Game {
 	private ArrayList<Tracker> track = new ArrayList<Tracker>(); //instance variables
 	private int count =0;
@@ -9,18 +9,17 @@ public class Tracker extends Game {
 	
 	//constructor
 	
-	public Tracker(String result, int computerScore, int playerScore) {
+	public Tracker(String result, int computerScore, int playerScore, int count) {
 		super(result, computerScore, playerScore);
-		count++;
 		this.gm = gm;
+		this.count = count;
 	}
 	
 	//method that addsResults
-	public void addScore(String result, int cmScore, int pScore) {
-	 Tracker games = new Tracker(result, cmScore, cmScore);
+	public void addScore(String result, int cmScore, int pScore, int count) {
+	 Tracker games = new Tracker(result, cmScore, cmScore, count);
 		track.add(games);
 		this.gm =games;
-		
 	}
 	
 	

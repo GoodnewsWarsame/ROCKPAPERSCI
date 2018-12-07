@@ -2,7 +2,7 @@ package Game;
 
 import Login.Login;
 import Login.UserInfo;
-
+//
 public class Game {
 //instance variables
 	private String Result;

@@ -1,5 +1,5 @@
 package Login;
-
+//
 public class UserInfo {
 	private String Username;
 	private String Password;
