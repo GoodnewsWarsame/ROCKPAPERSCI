@@ -32,7 +32,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 //GUI 
 	public RSPGUI() {
 		setVisible(true);
-		setSize(500, 150);
+		setSize(700, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridLayout grid = new GridLayout(1, 2);
 		FlowLayout flow = new FlowLayout();
