@@ -10,15 +10,12 @@ import javax.swing.*;
 //
 public class RSPGUI extends JFrame implements ActionListener, constants {
 
-	private JLabel userName = new JLabel("UserName");
-	private JLabel Bio = new JLabel("Bio");
-	private JTextField bioTxt = new JTextField(10);
-	private JTextField userTxt = new JTextField(10);
-	private JComboBox Choice = new JComboBox();
-	private JTextArea output = new JTextArea(300, 100);
-	private JScrollPane Scroll = new JScrollPane(output);
+
+	private JComboBox choice = new JComboBox();
+	private JTextArea output = new JTextArea(100, 100);
+	private JScrollPane scroll = new JScrollPane(output);
 	private JButton Play = new JButton("Play");
-	private JButton Result = new JButton("Result");
+	private JButton Record = new JButton("Record");
 	private JButton quit = new JButton("quit");
 	private JPanel top = new JPanel();
 	private JPanel mid = new JPanel();
@@ -32,18 +29,18 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 //GUI 
 	public RSPGUI() {
 		setVisible(true);
-		setSize(300, 300);
+		setSize(150, 200);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridLayout grid = new GridLayout(1, 2);
 		FlowLayout flow = new FlowLayout();
 		setLayout(flow);
 		add(mid);
 		add(low);
-		mid.add(Choice);
-		Choice.setModel(new DefaultComboBoxModel(choices));
-		Choice.addActionListener(new ActionListener() {
+		mid.add(choice);
+		choice.setModel(new DefaultComboBoxModel(choices));
+		choice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String C = Choice.getSelectedItem().toString();
+				String C = choice.getSelectedItem().toString();
 
 			}
 		});
@@ -53,7 +50,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 
 			public void actionPerformed(ActionEvent e) {
 
-				String C = Choice.getSelectedItem().toString();
+				String C = choice.getSelectedItem().toString();
 				String computerHand = "";
 				Random rand = new Random();
 
@@ -72,6 +69,8 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 				if (C.equals(computerHand)) {
 					result = "TIE";
 					count++;
+					JOptionPane.showMessageDialog(null, "DRAW, Play again", result,
+							JOptionPane.INFORMATION_MESSAGE);
 				} else {
 					switch (computerHand) {
 
@@ -80,11 +79,18 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							result = ("WINNER");
 							playercount++;
 							count++;
-
+							
+								JOptionPane.showMessageDialog(null, "Great JOB! You Won!", "Result",
+										JOptionPane.INFORMATION_MESSAGE);
+		
 						} else if (C.equals(PAPER)) {
 							result = ("LOSER");
 							computercount++;
 							count++;
+
+							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", "Result",
+									JOptionPane.INFORMATION_MESSAGE);
+	
 						}
 						break;
 					case PAPER:
@@ -92,10 +98,14 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							result = ("LOSER");
 							computercount++;
 							count++;
+							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", "Result",
+									JOptionPane.INFORMATION_MESSAGE);
 						} else if (C.equals(ROCK)) {
 							result = ("Winner");
 							playercount++;
 							count++;
+							JOptionPane.showMessageDialog(null, "Great JOB! You won!", "Result",
+									JOptionPane.INFORMATION_MESSAGE);
 						}
 						break;
 					case SCISSORS:
@@ -103,10 +113,14 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							result = ("LOSER");
 							computercount++;
 							count++;
+							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", "Result",
+									JOptionPane.INFORMATION_MESSAGE);
 						} else if (C.equals(PAPER)) {
 							result = ("WINNER");
 							playercount++;
 							count++;
+							JOptionPane.showMessageDialog(null, "Great JOB! You won!", "Result",
+									JOptionPane.INFORMATION_MESSAGE);
 						}
 
 					}
@@ -115,14 +129,15 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 
 		});
 
-		mid.add(Result);
-		Result.addActionListener(new ActionListener() {
+		mid.add(Record);
+		Record.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			try {	
 				//ADDS RESULTS AND DISPLAYS RESULTS FROM GUI
 			Tracker lm = new Tracker(result,computercount, playercount,count);
 			lm.addScore(result, computercount, playercount,count);
 			output.append(lm.toString() + "");
+			
 			}catch(NullPointerException ex) {
 				System.out.println("Naaah");
 			}
@@ -138,7 +153,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 				System.exit(0);
 			}
 		});
-		low.add(Scroll);
+		low.add(scroll);
 
 	}
 
