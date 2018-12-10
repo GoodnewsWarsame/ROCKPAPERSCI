@@ -10,14 +10,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+import  java.awt.TextField;
+import javax.swing.JPasswordField;
 import Game.RSPGUI;
 //
 public class Login extends JFrame {
 	private JPanel top = new JPanel();
 	private JPanel bttm = new JPanel();
 	private JTextField usernTxt = new JTextField(10);
-	private JTextField passTxt = new JTextField(10);
+	private JPasswordField passTxt = new JPasswordField(10);
 	private JLabel userlbl = new JLabel("Username");
 	private JLabel passlbl = new JLabel("Password");
 	private JButton Login = new JButton("Login");
@@ -64,12 +65,14 @@ public class Login extends JFrame {
 				System.out.println("You have created an Account ");
 				usernTxt.setText("");
 				passTxt.setText("");
+				
 
 			}
 
 			if (Callingbtn.equals("Login")) {
 				String temp1 = usernTxt.getText();
-				String temp2 = passTxt.getText();
+				String myPass=String.valueOf(passTxt.getPassword());
+				String temp2 = myPass;
 			
 				
 				if (user.Search(temp1, temp2) == true) {

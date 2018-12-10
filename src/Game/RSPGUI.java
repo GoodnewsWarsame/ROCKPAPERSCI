@@ -80,7 +80,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							playercount++;
 							count++;
 							
-								JOptionPane.showMessageDialog(null, "Great JOB! You Won!", "Result",
+								JOptionPane.showMessageDialog(null, "Great JOB! You Won!", result,
 										JOptionPane.INFORMATION_MESSAGE);
 		
 						} else if (C.equals(PAPER)) {
@@ -88,7 +88,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							computercount++;
 							count++;
 
-							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", "Result",
+							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", result,
 									JOptionPane.INFORMATION_MESSAGE);
 	
 						}
@@ -98,13 +98,13 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							result = ("LOSER");
 							computercount++;
 							count++;
-							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", "Result",
+							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", result,
 									JOptionPane.INFORMATION_MESSAGE);
 						} else if (C.equals(ROCK)) {
 							result = ("Winner");
 							playercount++;
 							count++;
-							JOptionPane.showMessageDialog(null, "Great JOB! You won!", "Result",
+							JOptionPane.showMessageDialog(null, "Great JOB! You won!", result,
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 						break;
@@ -113,13 +113,13 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							result = ("LOSER");
 							computercount++;
 							count++;
-							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", "Result",
+							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", result,
 									JOptionPane.INFORMATION_MESSAGE);
 						} else if (C.equals(PAPER)) {
 							result = ("WINNER");
 							playercount++;
 							count++;
-							JOptionPane.showMessageDialog(null, "Great JOB! You won!", "Result",
+							JOptionPane.showMessageDialog(null, "Great JOB! You won!", result,
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 
@@ -134,10 +134,16 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 			public void actionPerformed(ActionEvent e) {
 			try {	
 				//ADDS RESULTS AND DISPLAYS RESULTS FROM GUI
-			Tracker lm = new Tracker(result,computercount, playercount,count);
-			lm.addScore(result, computercount, playercount,count);
-			output.append(lm.toString() + "");
+			Tracker game = new Tracker(result,computercount, playercount,count);
+			game.addScore(result, computercount, playercount,count);
+			output.append(game.toString() + "\n");
+			if(playercount > computercount ) {
+				output.append("you're winning more than you're losing , a great Tactician" + "\n");
+			}
 			
+			if(computercount> playercount) {
+				output.append("Luck is not on your side" + "\n");
+			}
 			}catch(NullPointerException ex) {
 				System.out.println("Naaah");
 			}
