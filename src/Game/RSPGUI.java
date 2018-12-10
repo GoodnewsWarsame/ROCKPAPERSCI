@@ -27,8 +27,8 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 	private Tracker gm;
 	private int count;
 	ImageIcon img = new ImageIcon("loser.jpg");
-	ImageIcon win = new ImageIcon("C:\\Users\\Goodn\\eclipse-workspace\\RockPaperScissor\\src\\Game\\winner.jpg");
-	ImageIcon tie = new ImageIcon("C:\\Users\\Goodn\\eclipse-workspace\\RockPaperScissor\\src\\Game\\tieGame.png");
+	ImageIcon win = new ImageIcon("winner.jpg");
+	ImageIcon tie = new ImageIcon("tieGame.png");
 //GUI 
 	public RSPGUI() {
 		setVisible(true);

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import  java.awt.TextField;
@@ -65,7 +66,7 @@ public class Login extends JFrame {
 				System.out.println("You have created an Account ");
 				usernTxt.setText("");
 				passTxt.setText("");
-				
+				JOptionPane.showMessageDialog(null, "Great JOB! You Created an Account!");
 
 			}
 
@@ -78,13 +79,14 @@ public class Login extends JFrame {
 				if (user.Search(temp1, temp2) == true) {
 					usernTxt.setText("");
 					passTxt.setText("");
-					System.out.println("you have logged in");
+					JOptionPane.showMessageDialog(null, "Great JOB! You Logged in!");
 					RSPGUI gui = new RSPGUI();
 
 				}
 				
 					else if (user.Search(temp1, temp2) == false) {
-					System.out.println("incorrect login");
+						JOptionPane.showMessageDialog(null, "Incorrect username or Password");
+					
 				}
 			}
 		}
