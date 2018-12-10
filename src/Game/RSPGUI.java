@@ -26,6 +26,9 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 	private int computercount;
 	private Tracker gm;
 	private int count;
+	ImageIcon img = new ImageIcon("loser.jpg");
+	ImageIcon win = new ImageIcon("C:\\Users\\Goodn\\eclipse-workspace\\RockPaperScissor\\src\\Game\\winner.jpg");
+	ImageIcon tie = new ImageIcon("C:\\Users\\Goodn\\eclipse-workspace\\RockPaperScissor\\src\\Game\\tieGame.png");
 //GUI 
 	public RSPGUI() {
 		setVisible(true);
@@ -69,8 +72,9 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 				if (C.equals(computerHand)) {
 					result = "TIE";
 					count++;
+					
 					JOptionPane.showMessageDialog(null, "DRAW, Play again", result,
-							JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.INFORMATION_MESSAGE,tie);
 				} else {
 					switch (computerHand) {
 
@@ -81,7 +85,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							count++;
 							
 								JOptionPane.showMessageDialog(null, "Great JOB! You Won!", result,
-										JOptionPane.INFORMATION_MESSAGE);
+										JOptionPane.INFORMATION_MESSAGE,win);
 		
 						} else if (C.equals(PAPER)) {
 							result = ("LOSER");
@@ -89,7 +93,7 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							count++;
 
 							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", result,
-									JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.INFORMATION_MESSAGE,img);
 	
 						}
 						break;
@@ -99,13 +103,13 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							computercount++;
 							count++;
 							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", result,
-									JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.INFORMATION_MESSAGE,img);
 						} else if (C.equals(ROCK)) {
 							result = ("Winner");
 							playercount++;
 							count++;
 							JOptionPane.showMessageDialog(null, "Great JOB! You won!", result,
-									JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.INFORMATION_MESSAGE,win);
 						}
 						break;
 					case SCISSORS:
@@ -114,13 +118,13 @@ public class RSPGUI extends JFrame implements ActionListener, constants {
 							computercount++;
 							count++;
 							JOptionPane.showMessageDialog(null, "Better Luck Next Time! You Lost!", result,
-									JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.INFORMATION_MESSAGE,img);
 						} else if (C.equals(PAPER)) {
 							result = ("WINNER");
 							playercount++;
 							count++;
 							JOptionPane.showMessageDialog(null, "Great JOB! You won!", result,
-									JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.INFORMATION_MESSAGE,win);
 						}
 
 					}
